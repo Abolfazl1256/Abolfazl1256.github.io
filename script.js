@@ -1,11 +1,1 @@
-const toggle = document.getElementById("menuToggle");
-const links = document.getElementById("navLinks");
-toggle.addEventListener("click", () => {
-  const isOpen = links.classList.toggle("open");
-  toggle.setAttribute("aria-expanded", String(isOpen));
-});
-links.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
-  links.classList.remove("open");
-  toggle.setAttribute("aria-expanded", "false");
-}));
-document.getElementById("year").textContent = new Date().getFullYear();
+const themeButton=document.getElementById("themeToggle");function applyTheme(t){document.documentElement.dataset.theme=t;if(themeButton)themeButton.textContent=t==="dark"?"☀":"☾";localStorage.setItem("site-theme",t)}applyTheme(localStorage.getItem("site-theme")||"light");themeButton?.addEventListener("click",()=>applyTheme(document.documentElement.dataset.theme==="dark"?"light":"dark"));const year=document.getElementById("year");if(year)year.textContent=new Date().getFullYear();
